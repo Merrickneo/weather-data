@@ -4,13 +4,8 @@
             Query Past Searches
         </label>
         <br>
-      <nb-select placeholder="Select Showcase" [(selected)]="selectedLocation" #selector>
-        <nb-option value="">--</nb-option>
-        <nb-option value="0">Option 0</nb-option>
-        <nb-option value="1">Option 1</nb-option>
-        <nb-option value="2">Option 2</nb-option>
-        <nb-option value="3">Option 3</nb-option>
-        <nb-option value="4">Option 4</nb-option>
+      <nb-select placeholder="Past Locations" [(selected)]="selectedLocation" #selector>
+        <nb-option *ngFor="let location of pastLocations"> Lat: {{location.latitude}} | Long: {{location.longitude}}</nb-option>
       </nb-select>
     </nb-card-body>
   </nb-card>
@@ -26,8 +21,6 @@
             Temperature: {{weatherData["current"]["temp"] - 273.15}}°C
             Humidity: {{weatherData["current"]["humidity"]}}
             <h1>{{ weatherData["current"]["clouds"] }}</h1>
-            <h2>{{ weatherData["name"] }}°C</h2>
-            <h3>{{ weatherData["name"] }}</h3>
         </div>
     </nb-card-body>
 </nb-card>
