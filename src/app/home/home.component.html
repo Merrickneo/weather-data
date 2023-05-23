@@ -1,0 +1,18 @@
+<nb-card>
+    <nb-card-header>WeatherQuery</nb-card-header>
+    <nb-card-body>
+      LocationQuery helps you to easily get your current location's weather information.
+        <ul>
+            <li>Step 1: Get your current location's latitude and longitude.</li>
+            <li>Step 2: Input the lat and long values into the text box and click go!</li>
+        </ul>
+        <nb-card-body>
+            <button 
+            class="btn btn-primary blue-button"
+            (click)="onWeatherClick()">
+            Let's get started!
+            </button>
+        </nb-card-body>
+    </nb-card-body>
+    <nb-card-footer style="font-family: ubuntu;">Supported by <a href="https://openweathermap.org/"><em>OpenWeatherMap</em></a></nb-card-footer>
+</nb-card>

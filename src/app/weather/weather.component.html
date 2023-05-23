@@ -1,0 +1,35 @@
+<nb-card size="tiny">
+    <nb-card-body>
+        <label for="selector">
+            Query Past Searches
+        </label>
+        <br>
+      <nb-select placeholder="Select Showcase" [(selected)]="selectedLocation" #selector>
+        <nb-option value="">--</nb-option>
+        <nb-option value="0">Option 0</nb-option>
+        <nb-option value="1">Option 1</nb-option>
+        <nb-option value="2">Option 2</nb-option>
+        <nb-option value="3">Option 3</nb-option>
+        <nb-option value="4">Option 4</nb-option>
+      </nb-select>
+    </nb-card-body>
+  </nb-card>
+<nb-card>    
+    <nb-card-body class="example-items-col">
+      <label for="latitude">Latitude</label>
+      <input type="number" nbInput fullWidth status="primary" [(ngModel)]="latitude">
+      <input type="number" nbInput fullWidth status="info" [(ngModel)]="longitude">
+      <button status="success" (click)="onWeatherClick()">Go!</button>
+    </nb-card-body>
+    <nb-card-body>
+        <div *ngIf="weatherData">
+            Temperature: {{weatherData["current"]["temp"] - 273.15}}°C
+            Humidity: {{weatherData["current"]["humidity"]}}
+            <h1>{{ weatherData["current"]["clouds"] }}</h1>
+            <h2>{{ weatherData["name"] }}°C</h2>
+            <h3>{{ weatherData["name"] }}</h3>
+        </div>
+    </nb-card-body>
+</nb-card>
+  
+  
