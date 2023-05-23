@@ -4,9 +4,11 @@
             Query Past Searches
         </label>
         <br>
-      <nb-select placeholder="Past Locations" [(selected)]="selectedLocation" #selector>
-        <nb-option *ngFor="let location of pastLocations"> Lat: {{location.latitude}} | Long: {{location.longitude}}</nb-option>
+      <nb-select placeholder="Past Locations" [(ngModel)]="selectedLocation" #selector>
+        <nb-option [value]="location" *ngFor="let location of pastLocations; let i = index "> Lat: {{location.latitude}} | Long: {{location.longitude}}</nb-option>
       </nb-select>
+      <br>
+      <button class="btn btn-primary" (click)="pastLocationClick()">Submit Button!</button>
     </nb-card-body>
   </nb-card>
 <nb-card>    
@@ -20,7 +22,6 @@
         <div *ngIf="weatherData">
             Temperature: {{weatherData["current"]["temp"] - 273.15}}°C
             Humidity: {{weatherData["current"]["humidity"]}}
-            <h1>{{ weatherData["current"]["clouds"] }}</h1>
         </div>
     </nb-card-body>
 </nb-card>

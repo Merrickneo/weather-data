@@ -12,7 +12,7 @@ export class WeatherComponent implements OnDestroy {
     latitude: number = 0;
     longitude: number = 0;
     weatherData = null;
-    selectedLocation = null;
+    selectedLocation: Location = new Location(0, 0);
     pastLocations: Location[] = [];
     subscription: Subscription;
 
@@ -31,6 +31,14 @@ export class WeatherComponent implements OnDestroy {
         this.latitude = 0;
         this.longitude = 0;
     }
+
+    pastLocationClick() {
+        console.log(this.selectedLocation.latitude, this.selectedLocation.longitude);
+        this.weatherService.getWeather(this.selectedLocation.latitude, this.selectedLocation.longitude).subscribe((data) => {
+            console.log(data);
+            this.weatherData = data;
+        });
+      }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
