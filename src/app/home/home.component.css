@@ -1,5 +1,9 @@
 .blue-button {
     background-color: #009dff;
     border-radius: 5px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.blue-button:hover {
+    cursor: pointer;
 }
